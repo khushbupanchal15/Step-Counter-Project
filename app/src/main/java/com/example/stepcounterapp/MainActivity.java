@@ -37,14 +37,12 @@ public class MainActivity extends AppCompatActivity {
         appname.animate().translationY(1400).setDuration(1000).setStartDelay(3000);
         lottieAnimationView.animate().translationY(1400).setDuration(1000).setStartDelay(3000);
 
-        btnnext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this,LoginActivity.class);
-                startActivity(i);
-            }
-        });
+    }
 
+
+    public void Login(View view) {
+        Intent i = new Intent(this,LoginActivity.class);
+        startActivity(i);
     }
 }
 
