@@ -24,6 +24,10 @@ public class LoginActivity extends AppCompatActivity {
         reg = findViewById(R.id.new_reg);
     }
 
+    public void redirectHome(View view) {
+        Intent in = new Intent(this,HomeScreenActivity.class);
+        startActivity(in);
+    }
 
     public void Register(View view) {
         Intent in = new Intent(LoginActivity.this,RegistrationActivity.class);
