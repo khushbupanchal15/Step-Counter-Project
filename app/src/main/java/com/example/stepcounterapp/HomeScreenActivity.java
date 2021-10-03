@@ -26,7 +26,7 @@ public class HomeScreenActivity extends AppCompatActivity {
 
         bottomNav.add(new MeowBottomNavigation.Model(1,R.drawable.ic_home));
         bottomNav.add(new MeowBottomNavigation.Model(2,R.drawable.ic_report));
-        bottomNav.add(new MeowBottomNavigation.Model(3,R.drawable.ic_rank));
+        bottomNav.add(new MeowBottomNavigation.Model(3,R.drawable.ic_health));
         bottomNav.add(new MeowBottomNavigation.Model(4,R.drawable.ic_settings));
 
         bottomNav.show(1,true);
@@ -68,10 +68,6 @@ public class HomeScreenActivity extends AppCompatActivity {
     }
 
     private void loadFragment(Fragment fragment) {
-       /* getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.frameLayout,fragment)
-                .commit();*/
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.frameLayout,fragment);
         transaction.commit();
