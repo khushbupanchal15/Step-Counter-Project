@@ -84,7 +84,7 @@
         android:background="@drawable/btn_bg"
         android:shadowColor="@color/white"
         android:text="SIGN IN"
-        android:onClick="redirectHome"
+
         android:textColor="@color/purple_700"
         android:textColorHint="#E040FB"
         app:backgroundTint="@color/white"

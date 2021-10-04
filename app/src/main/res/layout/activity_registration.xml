@@ -207,7 +207,6 @@
 
         android:layout_marginTop="24dp"
         android:background="@drawable/btn_bg"
-        android:onClick="onNewReg"
         android:shadowColor="@color/white"
         android:text="Register"
         android:textColor="@color/purple_700"
