@@ -2,7 +2,6 @@ package com.example.stepcounterapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -36,6 +35,24 @@ public class LoginActivity extends AppCompatActivity {
         login = findViewById(R.id.login);
         reg = findViewById(R.id.new_reg);
 
+        // below line is used to get the instance
+
+        /* of our Firebase database.
+
+        firebaseDatabase = FirebaseDatabase.getInstance();
+
+
+
+        // below line is used to get
+
+        // reference for our database.
+
+        databaseReference = firebaseDatabase.getReference("User");
+
+        */
+
+        // initializing our object class variable.
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,9 +70,9 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                             if(snapshot.hasChild(unm)){
-                                String getPassword = snapshot.child("password").getValue(String.class);
-                                Log.e("Username--------------",unm);
-                                Log.e("Password------",getPassword);
+                                String getPassword = snapshot.child(unm).child("password").getValue(String.class);
+                                //Log.e("Username--------------",unm);
+                                //Log.e("Password------",getPassword);
 
                                 if(getPassword.equals(pswd))
                                 {
@@ -70,13 +87,13 @@ public class LoginActivity extends AppCompatActivity {
                             }
                             else
                             {
-                                Toast.makeText(LoginActivity.this,"Wrong password",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this,"Wrong data",Toast.LENGTH_SHORT).show();
                             }
                         }
 
                         @Override
                         public void onCancelled(@NonNull @NotNull DatabaseError error) {
-
+                            Toast.makeText(LoginActivity.this,"Data not retrieve",Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
