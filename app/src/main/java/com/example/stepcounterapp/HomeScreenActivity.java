@@ -46,7 +46,8 @@ public class HomeScreenActivity extends AppCompatActivity {
                         break;
                     }
                     case 3:{
-                        loadFragment(new SettingsFragment());
+                        startActivity(new Intent(getApplicationContext(),SettingsActivity.class));
+                       // finish();
                         break;
                     }
 
