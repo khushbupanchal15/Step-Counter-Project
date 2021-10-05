@@ -37,7 +37,7 @@ public class HomeScreenActivity extends AppCompatActivity {
 
                 switch (model.getId()){
                     case 1: {
-                        loadFragment(new HomeFragment());
+                        startActivity(new Intent(getApplicationContext(),HomeActivity.class));
                         break;
                     }
 
