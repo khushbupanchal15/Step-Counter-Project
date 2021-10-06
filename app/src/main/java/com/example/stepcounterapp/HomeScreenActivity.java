@@ -37,7 +37,7 @@ public class HomeScreenActivity extends AppCompatActivity {
 
                 switch (model.getId()){
                     case 1: {
-                        loadFragment(new HomeFragment());
+                        startActivity(new Intent(getApplicationContext(),HomeActivity.class));
                         break;
                     }
 
@@ -46,7 +46,8 @@ public class HomeScreenActivity extends AppCompatActivity {
                         break;
                     }
                     case 3:{
-                        loadFragment(new SettingsFragment());
+                        startActivity(new Intent(getApplicationContext(),SettingsActivity.class));
+                       // finish();
                         break;
                     }
 

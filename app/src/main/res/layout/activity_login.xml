@@ -38,7 +38,7 @@
         android:drawableLeft="@drawable/ic_person1"
         android:drawablePadding="10dp"
         android:hint="@string/prompt_username"
-        android:inputType="textPersonName|textCapCharacters"
+        android:inputType="textPersonName"
         android:paddingLeft="20dp"
         android:paddingTop="10dp"
         android:paddingRight="10dp"
