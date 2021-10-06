@@ -1,19 +1,15 @@
 package com.example.stepcounterapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
 import android.os.Bundle;
-import android.view.WindowManager;
-import android.widget.TextView;
-import android.widget.Toast;
 
-public class HomeActivity extends AppCompatActivity implements SensorEventListener {
+import androidx.appcompat.app.AppCompatActivity;
 
+public class HomeActivity1 extends AppCompatActivity implements SensorEventListener {
+
+    /*
     private TextView stepCounter,tot_steps;
     private SensorManager sensorManager;
     private Sensor msensor;
@@ -21,10 +17,14 @@ public class HomeActivity extends AppCompatActivity implements SensorEventListen
     int stepCount = 0;
     private  boolean walking = false;
 
+
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        /*
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         stepCounter = findViewById(R.id.steps);
@@ -42,15 +42,20 @@ public class HomeActivity extends AppCompatActivity implements SensorEventListen
             isCounterSensorPresent = false;
         }
 
+         */
+
 
     }
 
     @Override
     public void onSensorChanged(SensorEvent event) {
+        /*
         if(event.sensor == msensor){
             stepCount = (int) event.values[0];
             stepCounter.setText(String.valueOf(stepCount));
         }
+
+         */
     }
 
     @Override
@@ -58,6 +63,7 @@ public class HomeActivity extends AppCompatActivity implements SensorEventListen
 
     }
 
+    /*
     @Override
     public void onResume() {
         super.onResume();
@@ -77,6 +83,8 @@ public class HomeActivity extends AppCompatActivity implements SensorEventListen
 
         }
     }
+
+     */
 
 
 
