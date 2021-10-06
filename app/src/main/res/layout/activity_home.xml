@@ -35,7 +35,7 @@
                 android:src="@drawable/foot" />
 
             <TextView
-                android:id="@+id/steps"
+                android:id="@+id/TV_STEPS"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0"
@@ -72,6 +72,7 @@
             android:src="@drawable/calories" />
 
         <TextView
+            android:id="@+id/TV_CALORIES"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="90dp"
@@ -93,7 +94,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <TextView
-            android:id="@+id/tot_distance"
+            android:id="@+id/TV_DISTANCE"
             android:layout_width="147dp"
             android:layout_height="match_parent"
             android:drawableLeft="@drawable/ic_running_man"
