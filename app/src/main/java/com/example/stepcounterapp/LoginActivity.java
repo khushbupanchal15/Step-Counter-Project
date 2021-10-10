@@ -2,6 +2,7 @@ package com.example.stepcounterapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -24,7 +25,28 @@ public class LoginActivity extends AppCompatActivity {
 
     TextView username,pwd;
     Button login,reg;
+    public static int getAgeforCal;
+    public static int  getHeightforCal;
+    public static int getWeightforCal ;
+    public static String getGenderforCal ;
 
+    /*public static int returnAge()
+    {
+        return getAgeforCal;
+    }
+    public static int returnHeight()
+    {
+        return getHeightforCal;
+    }
+    public static int returnWeight()
+    {
+        return getWeightforCal;
+    }
+    public static String returnGender()
+    {
+        return getGenderforCal;
+    }
+    */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,23 +57,8 @@ public class LoginActivity extends AppCompatActivity {
         login = findViewById(R.id.login);
         reg = findViewById(R.id.new_reg);
 
-        // below line is used to get the instance
-
-        /* of our Firebase database.
-
-        firebaseDatabase = FirebaseDatabase.getInstance();
 
 
-
-        // below line is used to get
-
-        // reference for our database.
-
-        databaseReference = firebaseDatabase.getReference("User");
-
-        */
-
-        // initializing our object class variable.
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,12 +78,25 @@ public class LoginActivity extends AppCompatActivity {
                         public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                             if(snapshot.hasChild(unm)){
                                 String getPassword = snapshot.child(unm).child("password").getValue(String.class);
+
+
+
                                 //Log.e("Username--------------",unm);
                                 //Log.e("Password------",getPassword);
 
                                 if(getPassword.equals(pswd))
                                 {
                                     Toast.makeText(LoginActivity.this,"Successful Logged in",Toast.LENGTH_SHORT).show();
+                                    getAgeforCal = snapshot.child(unm).child("age").getValue(Integer.class);
+                                    getHeightforCal = snapshot.child(unm).child("height").getValue(Integer.class);
+                                    getWeightforCal = snapshot.child(unm).child("weight").getValue(Integer.class);
+                                    getGenderforCal = snapshot.child(unm).child("gender").getValue(String.class);
+
+                                    Log.w("Age===============", String.valueOf(getAgeforCal));
+                                    Log.d("Height===============", String.valueOf(getHeightforCal));
+                                    Log.d("Weight===============", String.valueOf(getWeightforCal));
+                                    Log.d("Gender===============", String.valueOf(getGenderforCal));
+
                                     Intent in = new Intent(LoginActivity.this,HomeScreenActivity.class);
                                     startActivity(in);
                                 }
