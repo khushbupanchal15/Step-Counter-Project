@@ -1,12 +1,13 @@
 package com.example.stepcounterapp.service
 
+import android.app.Application
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.ContextWrapper
 import android.os.Build
 import com.example.stepcounterapp.helper.PrefsHelper
 
-class App : android.app.Application() {
+class App : Application() {
     override fun onCreate() {
         super.onCreate()
 

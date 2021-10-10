@@ -5,6 +5,7 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Build;
 import android.text.TextUtils;
 
@@ -12,7 +13,9 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
+@SuppressWarnings("unused")
 public final class PrefsHelper {
+
     private static final String DEFAULT_SUFFIX = "_preferences";
     private static final String LENGTH = "#LENGTH";
     private static SharedPreferences mPrefs;
@@ -269,9 +272,10 @@ public final class PrefsHelper {
      *
      * @param key   The name of the preference to modify.
      * @param value The new value for the preference.
+     * @see Editor#putLong(String, long)
      */
     public static void putLong(final String key, final long value) {
-        final SharedPreferences.Editor editor = getPreferences().edit();
+        final Editor editor = getPreferences().edit();
         editor.putLong(key, value);
         editor.apply();
     }
@@ -281,10 +285,10 @@ public final class PrefsHelper {
      *
      * @param key   The name of the preference to modify.
      * @param value The new value for the preference.
-     * @see SharedPreferences.Editor#putInt(String, int)
+     * @see Editor#putInt(String, int)
      */
     public static void putInt(final String key, final int value) {
-        final SharedPreferences.Editor editor = getPreferences().edit();
+        final Editor editor = getPreferences().edit();
         editor.putInt(key, value);
         editor.apply();
     }
@@ -294,10 +298,10 @@ public final class PrefsHelper {
      *
      * @param key   The name of the preference to modify.
      * @param value The double value to be save in the preferences.
-     * @see SharedPreferences.Editor#putLong(String, long)
+     * @see Editor#putLong(String, long)
      */
     public static void putDouble(final String key, final double value) {
-        final SharedPreferences.Editor editor = getPreferences().edit();
+        final Editor editor = getPreferences().edit();
         editor.putLong(key, Double.doubleToRawLongBits(value));
         editor.apply();
     }
@@ -307,10 +311,10 @@ public final class PrefsHelper {
      *
      * @param key   The name of the preference to modify.
      * @param value The new value for the preference.
-     * @see SharedPreferences.Editor#putFloat(String, float)
+     * @see Editor#putFloat(String, float)
      */
     public static void putFloat(final String key, final float value) {
-        final SharedPreferences.Editor editor = getPreferences().edit();
+        final Editor editor = getPreferences().edit();
         editor.putFloat(key, value);
         editor.apply();
     }
@@ -320,10 +324,10 @@ public final class PrefsHelper {
      *
      * @param key   The name of the preference to modify.
      * @param value The new value for the preference.
-     * @see SharedPreferences.Editor#putBoolean(String, boolean)
+     * @see Editor#putBoolean(String, boolean)
      */
     public static void putBoolean(final String key, final boolean value) {
-        final SharedPreferences.Editor editor = getPreferences().edit();
+        final Editor editor = getPreferences().edit();
         editor.putBoolean(key, value);
         editor.apply();
     }
@@ -333,10 +337,10 @@ public final class PrefsHelper {
      *
      * @param key   The name of the preference to modify.
      * @param value The new value for the preference.
-     * @see SharedPreferences.Editor#putString(String, String)
+     * @see Editor#putString(String, String)
      */
     public static void putString(final String key, final String value) {
-        final SharedPreferences.Editor editor = getPreferences().edit();
+        final Editor editor = getPreferences().edit();
         editor.putString(key, value);
         editor.apply();
     }
@@ -345,19 +349,19 @@ public final class PrefsHelper {
      * Stores a Set of Strings. On Honeycomb and later this will call the native implementation in
      * SharedPreferences.Editor, on older SDKs this will call {@link #putOrderedStringSet(String,
      * Set)}.
-     * <strong>Note that the native implementation of {@link SharedPreferences.Editor#putStringSet(String,
+     * <strong>Note that the native implementation of {@link Editor#putStringSet(String,
      * Set)} does not reliably preserve the order of the Strings in the Set.</strong>
      *
      * @param key   The name of the preference to modify.
      * @param value The new value for the preference.
-     * @see SharedPreferences.Editor#putStringSet(String, Set)
+     * @see Editor#putStringSet(String, Set)
      * @see #putOrderedStringSet(String, Set)
      */
     @SuppressWarnings("WeakerAccess")
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public static void putStringSet(final String key, final Set<String> value) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            final SharedPreferences.Editor editor = getPreferences().edit();
+            final Editor editor = getPreferences().edit();
             editor.putStringSet(key, value);
             editor.apply();
         } else {
@@ -380,7 +384,7 @@ public final class PrefsHelper {
      */
     @SuppressWarnings("WeakerAccess")
     public static void putOrderedStringSet(String key, Set<String> value) {
-        final SharedPreferences.Editor editor = getPreferences().edit();
+        final Editor editor = getPreferences().edit();
         int stringSetLength = 0;
         if (mPrefs.contains(key + LENGTH)) {
             // First read what the value was
@@ -403,11 +407,11 @@ public final class PrefsHelper {
      * Removes a preference value.
      *
      * @param key The name of the preference to remove.
-     * @see SharedPreferences.Editor#remove(String)
+     * @see Editor#remove(String)
      */
     public static void remove(final String key) {
         SharedPreferences prefs = getPreferences();
-        final SharedPreferences.Editor editor = prefs.edit();
+        final Editor editor = prefs.edit();
         if (prefs.contains(key + LENGTH)) {
             // Workaround for pre-HC's lack of StringSets
             int stringSetLength = prefs.getInt(key + LENGTH, -1);
@@ -437,12 +441,12 @@ public final class PrefsHelper {
     /**
      * Removed all the stored keys and values.
      *
-     * @return the {@link SharedPreferences.Editor} for chaining. The changes have already been committed/applied
+     * @return the {@link Editor} for chaining. The changes have already been committed/applied
      * through the execution of this method.
-     * @see SharedPreferences.Editor#clear()
+     * @see Editor#clear()
      */
-    public static SharedPreferences.Editor clear() {
-        final SharedPreferences.Editor editor = getPreferences().edit().clear();
+    public static Editor clear() {
+        final Editor editor = getPreferences().edit().clear();
         editor.apply();
         return editor;
     }
@@ -452,7 +456,7 @@ public final class PrefsHelper {
      *
      * @return An Editor
      */
-    public static SharedPreferences.Editor edit() {
+    public static Editor edit() {
         return getPreferences().edit();
     }
 
@@ -546,4 +550,5 @@ public final class PrefsHelper {
         }
 
     }
+
 }
