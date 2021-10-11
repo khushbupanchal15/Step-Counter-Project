@@ -1,41 +1,49 @@
 package com.example.stepcounterapp
 
-//import com.example.stepcounterapp.databinding.ActivityHomeBinding.inflate
-
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.SystemClock
 import android.util.Log
+import android.view.View
+import android.view.View.inflate
+import android.widget.TextView
+import androidx.annotation.IdRes
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.graphics.drawable.DrawableCompat.inflate
+import androidx.databinding.DataBindingUtil.inflate
 import com.example.stepcounterapp.callback.stepsCallback
 import com.example.stepcounterapp.databinding.ActivityHomeBinding
+//import com.example.stepcounterapp.databinding.ActivityHomeBinding.inflate
+import com.example.stepcounterapp.databinding.ActivityHomeScreenBinding.inflate
+import com.example.stepcounterapp.databinding.ActivityLoginBinding.inflate
 import com.example.stepcounterapp.helper.GeneralHelper
 import com.example.stepcounterapp.service.StepDetectorService
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
-//import kotlinx.android.synthetic.main.activity_home.*
-
-
-
-/*
-fun <ViewT : View> Activity.bindView(@IdRes idRes: Int): Lazy<ViewT> {
+/*fun <ViewT : View> Activity.bindView(@IdRes idRes: Int): Lazy<ViewT> {
     return lazy(LazyThreadSafetyMode.NONE) {
         findViewById<ViewT>(idRes)
     }
-}
-*/
+}*/
 
-class HomeActivity : AppCompatActivity(), stepsCallback {
+
+class HomeActivity : AppCompatActivity() , stepsCallback {
+
+    //val binding = HomeActivity.inflate(layoutInflater)
 
     private lateinit var binding: ActivityHomeBinding
-    var h = 0
-    var s = 0
-    //var kmTravelled = 0
+    var h = 0;
+    var s = 0;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        setUpNavBar()
+
 
         val intent = Intent(this, StepDetectorService::class.java)
         startService(intent)
@@ -97,14 +105,38 @@ class HomeActivity : AppCompatActivity(), stepsCallback {
 
     }
 
+
+
+
+
     override fun subscribeSteps(steps: Int) {
+
         binding.TVSTEPS.setText(steps.toString())
         binding.TVCALORIES.setText(GeneralHelper.getCalory(steps))
         //binding.TVCALORIES.setText(GeneralHelper.getCalories(steps))
         binding.TVDISTANCE.setText(GeneralHelper.getDistanceCovered(steps))
 
-        //TV_STEPS.setText(steps.toString())
-        //TV_CALORIES.setText(GeneralHelper.getCalories(steps))
-        //TV_DISTANCE.setText(GeneralHelper.getDistanceCovered(steps))
+    }
+
+    fun setUpNavBar(){
+        binding.bottomNav.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.home -> {
+
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.health -> {
+                    startActivity(Intent(applicationContext, HealthActivity::class.java))
+                    overridePendingTransition(0, 0)
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.setting -> {
+                    startActivity(Intent(applicationContext, SettingsActivity::class.java))
+                    overridePendingTransition(0, 0)
+                    return@OnNavigationItemSelectedListener true
+                }
+            }
+             false
+        })
     }
 }
