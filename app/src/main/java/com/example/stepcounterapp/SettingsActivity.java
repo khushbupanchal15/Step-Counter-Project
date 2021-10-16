@@ -4,6 +4,7 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
@@ -37,6 +38,40 @@ public class SettingsActivity extends AppCompatActivity {
             addPreferencesFromResource(R.xml.preferences);
         }
     }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.options,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.logout:{
+                logoutUser();
+                return true;
+
+            }
+
+            case R.id.edit_profile:{
+                editProfile();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void  logoutUser(){
+        Intent intent = new Intent(SettingsActivity.this,LoginActivity.class);
+        startActivity(intent);
+    }
+
+    private void editProfile(){
+
+    }
+
 
     private void setUpNavBar(){
         bottomNav = findViewById(R.id.bottomNav);

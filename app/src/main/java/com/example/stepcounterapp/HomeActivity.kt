@@ -1,22 +1,15 @@
 package com.example.stepcounterapp
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.SystemClock
 import android.util.Log
-import android.view.View
-import android.view.View.inflate
-import android.widget.TextView
-import androidx.annotation.IdRes
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.graphics.drawable.DrawableCompat.inflate
-import androidx.databinding.DataBindingUtil.inflate
+import androidx.core.view.contains
 import com.example.stepcounterapp.callback.stepsCallback
 import com.example.stepcounterapp.databinding.ActivityHomeBinding
-//import com.example.stepcounterapp.databinding.ActivityHomeBinding.inflate
-import com.example.stepcounterapp.databinding.ActivityHomeScreenBinding.inflate
-import com.example.stepcounterapp.databinding.ActivityLoginBinding.inflate
 import com.example.stepcounterapp.helper.GeneralHelper
 import com.example.stepcounterapp.service.StepDetectorService
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -106,9 +99,6 @@ class HomeActivity : AppCompatActivity() , stepsCallback {
     }
 
 
-
-
-
     override fun subscribeSteps(steps: Int) {
 
         binding.TVSTEPS.setText(steps.toString())
@@ -118,7 +108,37 @@ class HomeActivity : AppCompatActivity() , stepsCallback {
 
     }
 
-    fun setUpNavBar(){
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.options,menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.logout -> {
+                logoutUser()
+                true
+            }
+            R.id.edit_profile -> {
+                editProfile()
+                true
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun logoutUser(){
+
+        val intent = Intent(this,LoginActivity::class.java)
+        startActivity(intent)
+
+    }
+
+    private fun editProfile() {
+
+    }
+
+    private fun setUpNavBar(){
         binding.bottomNav.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home -> {

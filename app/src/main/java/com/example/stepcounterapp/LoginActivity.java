@@ -97,9 +97,10 @@ public class LoginActivity extends AppCompatActivity {
                                     Log.d("Weight===============", String.valueOf(getWeightforCal));
                                     Log.d("Gender===============", String.valueOf(getGenderforCal));
 
-                                    Intent in = new Intent(LoginActivity.this,HomeScreenActivity.class);
+                                    Intent in = new Intent(LoginActivity.this,HomeActivity.class);
                                     startActivity(in);
                                 }
+
                                 else
                                 {
                                     Toast.makeText(LoginActivity.this,"Wrong password",Toast.LENGTH_SHORT).show();

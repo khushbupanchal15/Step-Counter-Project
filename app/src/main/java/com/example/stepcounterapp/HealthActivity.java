@@ -2,6 +2,7 @@ package com.example.stepcounterapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -40,85 +41,135 @@ public class HealthActivity extends AppCompatActivity {
         water_goal = (TextView) findViewById(R.id.water_goal);
         btn = (Button) findViewById(R.id.button);
 
-        btn.setOnClickListener(new View.OnClickListener() {
+
+
+
+       btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int sleep_hrs = Integer.parseInt(sleep_intake.getText().toString());
-                int water_litres = Integer.parseInt(water_intake.getText().toString());
-                switch (sleep_hrs) {
-                    case 0: {
-                        sleep_goal.setText("8 hrs");
-                        break;
-                    }
-                    case 1: {
-                        sleep_goal.setText("7 hrs");
-
-                        break;
-                    }
-                    case 2: {
-                        sleep_goal.setText("6 hrs");
-                        break;
-                    }
-                    case 3: {
-                        sleep_goal.setText("5 hrs");
-                        break;
-                    }
-                    case 4: {
-                        sleep_goal.setText("4 hrs");
-                        break;
-                    }
-                    case 5: {
-                        sleep_goal.setText("3 hrs");
-                        break;
-                    }
-                    case 6: {
-                        sleep_goal.setText("2 hrs");
-                        break;
-                    }
-                    case 7: {
-                        sleep_goal.setText("1 hr");
-                        break;
-                    }
-                    case 8: {
-                        sleep_goal.setText("0");
-                        break;
-                    }
-                    default: {
-                        sleep_goal.setText("0");
-
-                    }
-                }
-
-                switch (water_litres) {
-                    case 0: {
-                        water_goal.setText("3 litres");
-                        break;
-                    }
-                    case 1: {
-                        water_goal.setText("2 litres");
-                        break;
-                    }
-                    case 2: {
-                        water_goal.setText("1 litre");
-                        break;
-                    }
-                    case 3: {
-                        water_goal.setText("0");
-                        break;
-                    }
-
-                    default: {
-                        water_goal.setText("0");
-
-                    }
+                setSleepGoal();
+                setWaterGoal();
 
 
-                }
+
+            }
+        });
+
+
+
+
+
+    }
+
+    public void setSleepGoal(){
+
+        int sleep_hrs = Integer.parseInt(sleep_intake.getText().toString());
+
+        switch (sleep_hrs) {
+            case 0: {
+                sleep_goal.setText("8 hrs");
+                break;
+            }
+            case 1: {
+                sleep_goal.setText("7 hrs");
+                break;
+            }
+            case 2: {
+                sleep_goal.setText("6 hrs");
+                break;
+            }
+            case 3: {
+                sleep_goal.setText("5 hrs");
+                break;
+            }
+            case 4: {
+                sleep_goal.setText("4 hrs");
+                break;
+            }
+            case 5: {
+                sleep_goal.setText("3 hrs");
+                break;
+            }
+            case 6: {
+                sleep_goal.setText("2 hrs");
+                break;
+            }
+            case 7: {
+                sleep_goal.setText("1 hr");
+                break;
+            }
+            case 8: {
+                sleep_goal.setText("0 hr");
+                break;
+            }
+            default: {
+                sleep_goal.setText("0 hr");
+                break;
+
+            }
+        }
+    }
+
+    public void setWaterGoal(){
+        int water_litres = Integer.parseInt(water_intake.getText().toString());
+        switch (water_litres) {
+            case 0: {
+                water_goal.setText("3 litres");
+                break;
+
+            }
+            case 1: {
+                water_goal.setText("2 litres");
+                break;
+            }
+            case 2: {
+                water_goal.setText("1 litre");
+                break;
+            }
+            case 3: {
+                water_goal.setText("0 litre");
+                break;
+            }
+
+            default: {
+                water_goal.setText("0 litre");
+               break;
+
             }
 
 
-        });
+        }
+    }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.options,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.logout:{
+                logoutUser();
+                return true;
+
+            }
+
+            case R.id.edit_profile:{
+                editProfile();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void  logoutUser(){
+        Intent intent = new Intent(HealthActivity.this,LoginActivity.class);
+        startActivity(intent);
+    }
+
+    private void editProfile(){
 
     }
 
