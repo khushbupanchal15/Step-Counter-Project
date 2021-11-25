@@ -86,10 +86,10 @@ class GeneralHelper {
             Log.d("finalDistance=======", finalDistance.toString())
             return " $finalDistance Mile"
         }
-        fun getCalories(steps: Int): String? {
+        /*fun getCalories(steps: Int): String? {
             val Cal = (steps * 0.045).toInt()
             return " $Cal Cal"
-        }
+        }*/
         fun getCalory(steps: Int): String?
         {
             val age = LoginActivity.getAgeforCal

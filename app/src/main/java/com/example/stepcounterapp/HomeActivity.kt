@@ -7,7 +7,6 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.contains
 import com.example.stepcounterapp.callback.stepsCallback
 import com.example.stepcounterapp.databinding.ActivityHomeBinding
 import com.example.stepcounterapp.helper.GeneralHelper
@@ -27,8 +26,8 @@ class HomeActivity : AppCompatActivity() , stepsCallback {
     //val binding = HomeActivity.inflate(layoutInflater)
 
     private lateinit var binding: ActivityHomeBinding
-    var h = 0;
-    var s = 0;
+    //var h = 0
+    //var s = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,22 +52,22 @@ class HomeActivity : AppCompatActivity() , stepsCallback {
 
 
     }
-    fun getTimer(){
+    private fun getTimer(){
         val ctntimer = binding.TVtime
         ctntimer.setOnChronometerTickListener { chronometer ->
             val time = SystemClock.elapsedRealtime() - chronometer.base
-            h = (time / 3600000).toInt()
+            val h = (time / 3600000).toInt()
             val m = (time - h * 3600000).toInt() / 60000
-            s = (time - h * 3600000 - m * 60000).toInt() / 1000
+            val s = (time - h * 3600000 - m * 60000).toInt() / 1000
             val t = (if (h < 10) "0$h" else h).toString() + ":" + (if (m < 10) "0$m" else m) + ":" + if (s < 10) "0$s" else s
             chronometer.text = t
-            Log.d("Return_time=======", "$time , $s , $h ")
+            //Log.d("Return_time=======", "$time , $s , $h ")
         }
         ctntimer.setBase(SystemClock.elapsedRealtime())
-        ctntimer.setText(" 00:00:00")
+        " 00:00:00".also { ctntimer.text = it }
         ctntimer.start()
     }
-
+/*
     fun getCal(): String?{
 
         //kmTravelled = GeneralHelper.calculateDistanceTravelledInKM().toInt()
@@ -97,7 +96,7 @@ class HomeActivity : AppCompatActivity() , stepsCallback {
         }
 
     }
-
+*/
 
     override fun subscribeSteps(steps: Int) {
 
@@ -114,7 +113,7 @@ class HomeActivity : AppCompatActivity() , stepsCallback {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
+        return when (item.itemId) {
             R.id.logout -> {
                 logoutUser()
                 true
@@ -123,8 +122,9 @@ class HomeActivity : AppCompatActivity() , stepsCallback {
                 editProfile()
                 true
             }
+            else -> super.onOptionsItemSelected(item)
         }
-        return super.onOptionsItemSelected(item)
+        //return super.onOptionsItemSelected(item)
     }
 
     private fun logoutUser(){
@@ -135,7 +135,8 @@ class HomeActivity : AppCompatActivity() , stepsCallback {
     }
 
     private fun editProfile() {
-
+        val intent1 = Intent(this,EditProfileActivity::class.java)
+        startActivity(intent1)
     }
 
     private fun setUpNavBar(){

@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     public static int getAgeforCal;
     public static int  getHeightforCal;
     public static int getWeightforCal ;
-    public static String getGenderforCal ;
+    public static String getGenderforCal , getName , getUnm , getPwd ;
 
     /*public static int returnAge()
     {
@@ -91,6 +91,9 @@ public class LoginActivity extends AppCompatActivity {
                                     getHeightforCal = snapshot.child(unm).child("height").getValue(Integer.class);
                                     getWeightforCal = snapshot.child(unm).child("weight").getValue(Integer.class);
                                     getGenderforCal = snapshot.child(unm).child("gender").getValue(String.class);
+                                    getName = snapshot.child(unm).child("name").getValue(String.class);
+                                    getUnm = snapshot.child(unm).child("username").getValue(String.class);
+                                    getPwd = snapshot.child(unm).child("password").getValue(String.class);
 
                                     Log.w("Age===============", String.valueOf(getAgeforCal));
                                     Log.d("Height===============", String.valueOf(getHeightforCal));
