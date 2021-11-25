@@ -1,5 +1,6 @@
 package com.example.stepcounterapp;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -147,21 +148,25 @@ public class HealthActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){
-            case R.id.logout:{
-                logoutUser();
-                return true;
+            case R.id.logout:
+                startActivity(new Intent(HealthActivity.this, LoginActivity.class));
+                //logoutUser();
+                break;
 
-            }
+            case R.id.edit_profile:
+                startActivity(new Intent(HealthActivity.this, EditProfileActivity.class));
+                //editProfile();
+                break;
 
-            case R.id.edit_profile:{
-                editProfile();
-                return true;
-            }
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return super.onOptionsItemSelected(item);
+        return true;
+
     }
 
     private void  logoutUser(){
@@ -170,7 +175,8 @@ public class HealthActivity extends AppCompatActivity {
     }
 
     private void editProfile(){
-
+        Intent intent1 = new Intent(HealthActivity.this,EditProfileActivity.class);
+        startActivity(intent1);
     }
 
     private void setUpNavBar(){
