@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.ms.square.android.expandabletextview.ExpandableTextView;
 
-public class SettingsActivity extends AppCompatActivity {
+public class InstructionActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNav;
 
@@ -32,7 +32,7 @@ public class SettingsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.settings_activity);
+        setContentView(R.layout.instruction_activity);
 
         setUpNavBar();
 
@@ -64,20 +64,20 @@ public class SettingsActivity extends AppCompatActivity {
         expandTextView1 = findViewById(R.id.etv1).findViewById(R.id.expand_text_view);
         expandTextView1.setText(getString(R.string.howtouse));
 
-         expandTextView2 = findViewById(R.id.etv2).findViewById(R.id.expand_text_view);
-         expandTextView2.setText(getString(R.string.counting_when_shaking_phn));
+        expandTextView2 = findViewById(R.id.etv2).findViewById(R.id.expand_text_view);
+        expandTextView2.setText(getString(R.string.counting_when_shaking_phn));
 
-         expandTextView3 = findViewById(R.id.etv3).findViewById(R.id.expand_text_view);
-         expandTextView3.setText(getString(R.string.accuracy));
+        expandTextView3 = findViewById(R.id.etv3).findViewById(R.id.expand_text_view);
+        expandTextView3.setText(getString(R.string.accuracy));
 
-         expandTextView4 = findViewById(R.id.etv4).findViewById(R.id.expand_text_view);
-         expandTextView4.setText(getString(R.string.placement_sugg));
+        expandTextView4 = findViewById(R.id.etv4).findViewById(R.id.expand_text_view);
+        expandTextView4.setText(getString(R.string.placement_sugg));
 
-         expandTextView5 = findViewById(R.id.etv5).findViewById(R.id.expand_text_view);
-         expandTextView5.setText(getString(R.string.cal_dist));
+        expandTextView5 = findViewById(R.id.etv5).findViewById(R.id.expand_text_view);
+        expandTextView5.setText(getString(R.string.cal_dist));
 
-         expandTextView6 = findViewById(R.id.etv6).findViewById(R.id.expand_text_view);
-         expandTextView6.setText(getString(R.string.privacy_str));
+        expandTextView6 = findViewById(R.id.etv6).findViewById(R.id.expand_text_view);
+        expandTextView6.setText(getString(R.string.privacy_str));
 
     }
 
@@ -91,11 +91,11 @@ public class SettingsActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){
             case R.id.logout:
-                startActivity(new Intent(SettingsActivity.this, LoginActivity.class));
+                startActivity(new Intent(InstructionActivity.this, LoginActivity.class));
                 break;
 
             case R.id.edit_profile:
-                startActivity(new Intent(SettingsActivity.this, EditProfileActivity.class));
+                startActivity(new Intent(InstructionActivity.this, EditProfileActivity.class));
                 break;
             default:
                 return super.onOptionsItemSelected(item);

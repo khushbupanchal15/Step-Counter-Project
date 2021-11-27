@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    tools:context=".InstructionActivity">
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/etv1"
+            layout="@layout/expandable_tv"/>
+
+        <include
+            android:id="@+id/etv2"
+            layout="@layout/expandable_tv"/>
+        <include
+            android:id="@+id/etv3"
+            layout="@layout/expandable_tv"/>
+        <include
+            android:id="@+id/etv4"
+            layout="@layout/expandable_tv"/>
+        <include
+            android:id="@+id/etv5"
+            layout="@layout/expandable_tv"/>
+        <include
+            android:id="@+id/etv6"
+            layout="@layout/expandable_tv"/>
+
+    </LinearLayout>
+    </ScrollView>
+
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:itemBackground="@color/white"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
+        android:foregroundGravity="bottom"
+        app:menu="@menu/menu_nav" />
+
+
+</RelativeLayout>

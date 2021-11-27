@@ -193,7 +193,7 @@ public class HealthActivity extends AppCompatActivity {
 
                     case R.id.instructions:
                     {
-                        startActivity(new Intent(getApplicationContext(),SettingsActivity.class));
+                        startActivity(new Intent(getApplicationContext(), InstructionActivity.class));
                         overridePendingTransition(0,0);
                         return true;
                     }

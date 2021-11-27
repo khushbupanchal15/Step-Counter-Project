@@ -34,6 +34,7 @@ class HomeActivity : AppCompatActivity() , stepsCallback {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         setUpNavBar()
 
 
@@ -151,8 +152,8 @@ class HomeActivity : AppCompatActivity() , stepsCallback {
                     overridePendingTransition(0, 0)
                     return@OnNavigationItemSelectedListener true
                 }
-                R.id.setting -> {
-                    startActivity(Intent(applicationContext, SettingsActivity::class.java))
+                R.id.instructions -> {
+                    startActivity(Intent(applicationContext, InstructionActivity::class.java))
                     overridePendingTransition(0, 0)
                     return@OnNavigationItemSelectedListener true
                 }
