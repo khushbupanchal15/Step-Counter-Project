@@ -29,17 +29,12 @@ public class SettingsActivity extends AppCompatActivity {
     ExpandableTextView expandTextView5;
     ExpandableTextView expandTextView6;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_activity);
 
-
         setUpNavBar();
-
-
 
         textView2 = findViewById(R.id.etv2).findViewById(R.id.title);
         textView2.setText("Counting when shaking phone?");
@@ -66,25 +61,23 @@ public class SettingsActivity extends AppCompatActivity {
         textView6.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_privacy,0,0,0);
         textView6.setCompoundDrawablePadding(13);
 
-      expandTextView1 = findViewById(R.id.etv1).findViewById(R.id.expand_text_view);
-       expandTextView1.setText(getString(R.string.howtouse));
+        expandTextView1 = findViewById(R.id.etv1).findViewById(R.id.expand_text_view);
+        expandTextView1.setText(getString(R.string.howtouse));
 
-        expandTextView2 = findViewById(R.id.etv2).findViewById(R.id.expand_text_view);
-        expandTextView2.setText(getString(R.string.counting_when_shaking_phn));
+         expandTextView2 = findViewById(R.id.etv2).findViewById(R.id.expand_text_view);
+         expandTextView2.setText(getString(R.string.counting_when_shaking_phn));
 
-        expandTextView3 = findViewById(R.id.etv3).findViewById(R.id.expand_text_view);
-        expandTextView3.setText(getString(R.string.accuracy));
+         expandTextView3 = findViewById(R.id.etv3).findViewById(R.id.expand_text_view);
+         expandTextView3.setText(getString(R.string.accuracy));
 
-        expandTextView4 = findViewById(R.id.etv4).findViewById(R.id.expand_text_view);
-        expandTextView4.setText(getString(R.string.placement_sugg));
+         expandTextView4 = findViewById(R.id.etv4).findViewById(R.id.expand_text_view);
+         expandTextView4.setText(getString(R.string.placement_sugg));
 
-        expandTextView5 = findViewById(R.id.etv5).findViewById(R.id.expand_text_view);
-        expandTextView5.setText(getString(R.string.cal_dist));
+         expandTextView5 = findViewById(R.id.etv5).findViewById(R.id.expand_text_view);
+         expandTextView5.setText(getString(R.string.cal_dist));
 
-        expandTextView6 = findViewById(R.id.etv6).findViewById(R.id.expand_text_view);
-        expandTextView6.setText(getString(R.string.privacy_str));
-
-
+         expandTextView6 = findViewById(R.id.etv6).findViewById(R.id.expand_text_view);
+         expandTextView6.setText(getString(R.string.privacy_str));
 
     }
 
@@ -110,8 +103,6 @@ public class SettingsActivity extends AppCompatActivity {
         }
         return true;
     }
-
-
 
 
     private void setUpNavBar(){
