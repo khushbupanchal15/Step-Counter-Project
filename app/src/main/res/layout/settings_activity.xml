@@ -1,15 +1,399 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".SettingsActivity"
-    android:orientation="horizontal">
+    android:background="@drawable/bg_gradient"
+    tools:context=".SettingsActivity">
 
-    <FrameLayout
+    <!-- <FrameLayout
         android:id="@+id/settings"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+         />-->
+   <!-- <ScrollView
+        android:id="@+id/sv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:drawableLeft="@drawable/ic_howtouse_icon"
+                android:drawablePadding="5dp"
+                android:gravity="bottom"
+                android:singleLine="true"
+                android:text="How to use?"
+                android:textColor="@color/white"
+                android:textSize="28sp"
+                app:drawableTint="@color/white" />
+
+            <com.ms.square.android.expandabletextview.ExpandableTextView
+                android:id="@+id/expand_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:animDuration="200"
+                app:collapseDrawable="@drawable/ic_expand_icon"
+                app:expandDrawable="@drawable/ic_expand_icon"
+                app:maxCollapsedLines="0">
+
+                <TextView
+                    android:id="@id/expandable_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+                <ImageButton
+                    android:id="@id/expand_collapse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|bottom"
+                    android:background="@android:color/transparent"
+                    android:padding="16dp"
+                    android:src="@drawable/ic_expand_icon" />
+            </com.ms.square.android.expandabletextview.ExpandableTextView>
+        </LinearLayout>
+
+
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/sv2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sv"
+        android:layout_marginTop="18dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="bottom"
+                android:singleLine="true"
+                android:text="Counting when shaking phone?"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                />
+
+
+            <com.ms.square.android.expandabletextview.ExpandableTextView
+                android:id="@+id/expand_text2_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:animDuration="200"
+                app:maxCollapsedLines="1">
+
+                <TextView
+                    android:id="@id/expandable_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:text="How to Use?"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    tools:viewBindingIgnore="true"/>
+
+                <ImageButton
+                    android:id="@id/expand_collapse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|bottom"
+                    android:background="@android:color/transparent"
+                    android:padding="16dp" />
+            </com.ms.square.android.expandabletextview.ExpandableTextView>
+        </LinearLayout>
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/sv3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sv2"
+        android:layout_marginTop="18dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:drawableLeft="@drawable/ic_accuracy"
+                android:drawablePadding="10dp"
+                android:gravity="bottom"
+                android:singleLine="true"
+                android:text="Accuracy"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                app:drawableTint="@color/white" />
+
+
+            <com.ms.square.android.expandabletextview.ExpandableTextView
+                android:id="@+id/expand_text3_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:animDuration="200"
+                app:maxCollapsedLines="1">
+
+                <TextView
+                    android:id="@id/expandable_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:text="How to Use?"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    tools:viewBindingIgnore="true"/>
+
+                <ImageButton
+                    android:id="@id/expand_collapse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|bottom"
+                    android:background="@android:color/transparent"
+                    android:padding="16dp" />
+            </com.ms.square.android.expandabletextview.ExpandableTextView>
+        </LinearLayout>
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/sv4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sv3"
+        android:layout_marginTop="18dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:drawableLeft="@drawable/ic_placement_sugg"
+                android:drawablePadding="10dp"
+                android:gravity="bottom"
+                android:singleLine="true"
+                android:text="Placement Suggestion"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                app:drawableTint="@color/white" />
+
+
+            <com.ms.square.android.expandabletextview.ExpandableTextView
+                android:id="@+id/expand_text4_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:animDuration="200"
+                app:maxCollapsedLines="1">
+
+                <TextView
+                    android:id="@id/expandable_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:text="How to Use?"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    tools:viewBindingIgnore="true"/>
+
+                <ImageButton
+                    android:id="@id/expand_collapse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|bottom"
+                    android:background="@android:color/transparent"
+                    android:padding="16dp" />
+            </com.ms.square.android.expandabletextview.ExpandableTextView>
+        </LinearLayout>
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/sv5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sv4"
+        android:layout_marginTop="18dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:drawableLeft="@drawable/ic_calories_distance_icon"
+                android:drawablePadding="10dp"
+                android:gravity="bottom"
+                android:singleLine="true"
+                android:text="Calories and Distance"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                app:drawableTint="@color/white" />
+
+
+            <com.ms.square.android.expandabletextview.ExpandableTextView
+                android:id="@+id/expand_text5_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:animDuration="200"
+                app:maxCollapsedLines="1">
+
+                <TextView
+                    android:id="@id/expandable_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:text="How to Use?"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    tools:viewBindingIgnore="true"/>
+
+                <ImageButton
+                    android:id="@id/expand_collapse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|bottom"
+                    android:background="@android:color/transparent"
+                    android:padding="16dp" />
+            </com.ms.square.android.expandabletextview.ExpandableTextView>
+        </LinearLayout>
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/sv6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sv5"
+        android:layout_marginTop="18dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title6"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:drawableLeft="@drawable/ic_privacy"
+                android:drawablePadding="10dp"
+                android:gravity="bottom"
+                android:singleLine="true"
+                android:text="Privacy"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                app:drawableTint="@color/white" />
+
+
+            <com.ms.square.android.expandabletextview.ExpandableTextView
+                android:id="@+id/expand_text6_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:animDuration="200"
+                app:maxCollapsedLines="1">
+
+                <TextView
+                    android:id="@id/expandable_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:text="How to Use?"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    tools:viewBindingIgnore="true"/>
+
+                <ImageButton
+                    android:id="@id/expand_collapse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|bottom"
+                    android:background="@android:color/transparent"
+                    android:padding="16dp" />
+            </com.ms.square.android.expandabletextview.ExpandableTextView>
+        </LinearLayout>
+    </ScrollView>-->
+
+
+    <ScrollView
+        android:id="@+id/sv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/etv1"
+            layout="@layout/expandable_tv"/>
+
+        <include
+            android:id="@+id/etv2"
+            layout="@layout/expandable_tv"/>
+        <include
+            android:id="@+id/etv3"
+            layout="@layout/expandable_tv"/>
+        <include
+            android:id="@+id/etv4"
+            layout="@layout/expandable_tv"/>
+        <include
+            android:id="@+id/etv5"
+            layout="@layout/expandable_tv"/>
+        <include
+            android:id="@+id/etv6"
+            layout="@layout/expandable_tv"/>
+
+    </LinearLayout>
+    </ScrollView>
+
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
@@ -19,9 +403,9 @@
         app:itemBackground="@color/white"
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:foregroundGravity="bottom"
 
         app:menu="@menu/menu_nav" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

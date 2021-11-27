@@ -11,8 +11,8 @@
         android:icon="@drawable/ic_health"/>
 
     <item
-        android:id="@+id/setting"
-        android:icon="@drawable/ic_settings"
-        android:title="Settings"/>
+        android:id="@+id/instructions"
+        android:icon="@drawable/ic_instr_icon"
+        android:title="Instructions"/>
 
 </menu>
