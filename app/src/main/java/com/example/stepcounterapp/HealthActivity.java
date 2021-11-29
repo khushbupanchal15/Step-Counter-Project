@@ -152,12 +152,12 @@ public class HealthActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){
-            case R.id.logout:
-                startActivity(new Intent(HealthActivity.this, LoginActivity.class));
-                break;
-
             case R.id.edit_profile:
                 startActivity(new Intent(HealthActivity.this, EditProfileActivity.class));
+                break;
+
+            case R.id.logout:
+                startActivity(new Intent(HealthActivity.this, LoginActivity.class));
                 break;
 
             default:

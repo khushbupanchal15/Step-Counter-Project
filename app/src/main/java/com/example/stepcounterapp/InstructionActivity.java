@@ -90,13 +90,15 @@ public class InstructionActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){
-            case R.id.logout:
-                startActivity(new Intent(InstructionActivity.this, LoginActivity.class));
-                break;
 
             case R.id.edit_profile:
                 startActivity(new Intent(InstructionActivity.this, EditProfileActivity.class));
                 break;
+
+            case R.id.logout:
+                startActivity(new Intent(InstructionActivity.this, LoginActivity.class));
+                break;
+
             default:
                 return super.onOptionsItemSelected(item);
 
