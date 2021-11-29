@@ -115,17 +115,16 @@ class HomeActivity : AppCompatActivity() , stepsCallback {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.logout -> {
-                logoutUser()
-                true
-            }
             R.id.edit_profile -> {
                 editProfile()
                 true
             }
+            R.id.logout -> {
+                logoutUser()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
-        //return super.onOptionsItemSelected(item)
     }
 
     private fun logoutUser(){
