@@ -154,12 +154,10 @@ public class HealthActivity extends AppCompatActivity {
         switch(item.getItemId()){
             case R.id.logout:
                 startActivity(new Intent(HealthActivity.this, LoginActivity.class));
-                //logoutUser();
                 break;
 
             case R.id.edit_profile:
                 startActivity(new Intent(HealthActivity.this, EditProfileActivity.class));
-                //editProfile();
                 break;
 
             default:
@@ -169,15 +167,6 @@ public class HealthActivity extends AppCompatActivity {
 
     }
 
-    private void  logoutUser(){
-        Intent intent = new Intent(HealthActivity.this,LoginActivity.class);
-        startActivity(intent);
-    }
-
-    private void editProfile(){
-        Intent intent1 = new Intent(HealthActivity.this,EditProfileActivity.class);
-        startActivity(intent1);
-    }
 
     private void setUpNavBar(){
         bottomNav = findViewById(R.id.bottomNav);
@@ -202,9 +191,9 @@ public class HealthActivity extends AppCompatActivity {
                     }
 
 
-                    case R.id.setting:
+                    case R.id.instructions:
                     {
-                        startActivity(new Intent(getApplicationContext(),SettingsActivity.class));
+                        startActivity(new Intent(getApplicationContext(), InstructionActivity.class));
                         overridePendingTransition(0,0);
                         return true;
                     }

@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Step Counter App</string>
     <!-- Strings related to login -->
     <string name="prompt_username">Username</string>
@@ -85,5 +85,34 @@
         <item>Only when on Wi-Fi</item>
         <item>On any network</item>
     </string-array>
+
+    <string name="howtouse" >
+        When you install the app, make sure that your phone sensor is working so that it can track your steps correctly.
+        \nThe timer in the app will assess your walking time and calories will help you to assess the calories you burnt.
+        \nAlongwith it you can also set your health goals.
+    </string>
+
+    <string name="counting_when_shaking_phn" >
+       If you shake your phone it might be counted as steps because of the built-in-sensor.It is not a bug.
+    </string>
+
+    <string name="accuracy" >
+       We use built-in-sensor in your phone to count your steps,so the accuracy is based on how good the sensor is.
+    </string>
+
+    <string name="placement_sugg" >
+       Put your phone in your hand,pocket,bag,armband or places close to your body. \nDo not put your phone in places away from your body or
+        places that shakes too fast.
+    </string>
+
+    <string name="cal_dist" >
+       We use your height,weight and age information to calculate the total calories burnt.
+        \nThe total distance covered is calculated automatically by using the count of steps.
+        \nPlease fill in the information correctly at the time of registration or you can also edit them through edit profile option.
+    </string>
+
+    <string name="privacy_str" >
+       This app  is 100% private.No personal data is shared with third parties.
+    </string>
 
 </resources>
